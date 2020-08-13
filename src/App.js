@@ -7,6 +7,7 @@ import {
 import './App.css';
 import ListPage from './ListPage/ListPage.js';
 import Header from './Header.js';
+import AddRegattaPage from './AddRegattaPage/AddRegattaPage.js';
 
 export default class  extends Component {
   render() {
@@ -19,6 +20,11 @@ export default class  extends Component {
                   path="/" 
                   exact
                   render={(routerProps) => <ListPage {...routerProps} />} 
+              />
+              <Route 
+                  path="/addRegatta" 
+                  exact
+                  render={(routerProps) => <AddRegattaPage {...routerProps} />} 
               />
           </Switch>
       </Router>
