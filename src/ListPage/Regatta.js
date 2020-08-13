@@ -6,7 +6,7 @@ export default class Regatta extends Component {
       data
     } = this.props
     return (
-      <li key={data.id} className="regattaCard">
+      <li key={Math.random()} className="regattaCard">
         <h1>{data.name}</h1>
         <p>Race Type: {data.type}</p>
         <p>City: {data.city}</p>
