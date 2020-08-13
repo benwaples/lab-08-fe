@@ -16,3 +16,4 @@ export default class Regatta extends Component {
     )
   }
 }
+ 
