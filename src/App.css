@@ -43,7 +43,7 @@ header {
 
 .regattaCard {
   width: 300px;
-  height: 500px;
+  height: auto;
   border: solid var(--color1) 2px;
   border-radius: 15px;
   background-color: var(--color3);

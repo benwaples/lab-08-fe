@@ -5,11 +5,12 @@ import MoreDetailCard from './MoreDetailCard.js'
 export default class MoreInfo extends Component {
 
   state = {
-    regattaData: null
+    regattaData: null,
+    isLoading: false
   }
   
   componentDidMount = async () => {
-
+    this.state.isLoading = true;
     const regattaId = this.props.match.params.id
 
     const data = await request.get(`https://polar-sierra-76292.herokuapp.com/regattas/${regattaId}`)
@@ -19,6 +20,8 @@ export default class MoreInfo extends Component {
       regattaData: thisRegatta,
     })
 
+    this.state.isLoading = false;
+
     console.log(this.state.regattaData)
   }
 
@@ -26,7 +29,12 @@ export default class MoreInfo extends Component {
     const { regattaData } = this.state
     return (
       <div>
-        {/* <MoreDetailCard  regattaData={this.state.regattaData}/> */}
+        {
+          this.state.isLoading ?
+          <MoreDetailCard  regattaData={this.state.regattaData}/>
+          :
+          <img src="/oar.png" alt="spinning oar" className="loading" />
+        }
       </div>
     )
   }

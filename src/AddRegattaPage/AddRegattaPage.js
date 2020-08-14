@@ -83,7 +83,6 @@ export default class AddRegattaPage extends Component {
           {
             (!this.state.name || !this.state.type ||!this.state.city || !this.state.length_km ) ? <button className="disabled">Submit Regatta</button> : <button>Submit Regatta</button>
           }
-          
         </form>
       </div>
     )
