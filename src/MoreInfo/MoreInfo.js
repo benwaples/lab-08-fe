@@ -26,7 +26,6 @@ export default class MoreInfo extends Component {
   }
 
   render() {
-    const { regattaData } = this.state
     return (
       <div>
         {
