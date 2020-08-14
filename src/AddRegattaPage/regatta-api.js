@@ -1,6 +1,6 @@
 import request from 'superagent';
 
-const URL = process.env.REACT_APP_API_URL || 'http//:localhost3000'
+const URL = 'https://polar-sierra-76292.herokuapp.com';
 
 export function getRegattas() {
   return request.get(`${URL}/regattas`)

@@ -4,16 +4,16 @@ import { addRegatta } from './regatta-api.js'
 export default class AddRegattaPage extends Component {
   state = {
     name: '',
-    type: '',
+    type: 'sprint',
     city: '',
     length_km: '',
-    recommend: '',
+    recommend: true,
   }
 
   handleSubmit = async(e) => {
     e.preventDefault();
 
-    addRegatta({
+    const postData = await addRegatta({
       name: this.state.name,
       type: this.state.type,
       city: this.state.city,
@@ -21,12 +21,14 @@ export default class AddRegattaPage extends Component {
       recommend: this.state.recommend
     })
 
+    console.log(postData)
+
     this.setState({
       name: '',
-      type: '',
+      type: 'sprint',
       city: '',
       length_km: '',
-      recommend: '',
+      recommend: true,
     })
 
   }
@@ -54,19 +56,22 @@ export default class AddRegattaPage extends Component {
         <form className="do-it" onSubmit={this.handleSubmit}>
           <label>
             Name:
-            <input type="text" onChange={this.handleNameChange} />
+            <input type="text" onChange={this.handleNameChange} value={this.state.name}/>
           </label>
           <label>
             Type:
-            <input type="text" onChange={this.handleTypeChange} />
+            <select onChange={this.handleTypeChange}>
+              <option value="Head Race">Head Race</option>
+              <option value="Spring">Sprint</option>
+            </select>
           </label>
           <label>
             City:
-            <input type="text" onChange={this.handleCityChange} />
+            <input type="text" onChange={this.handleCityChange} value={this.state.city}/>
           </label>
           <label>
             Length:
-            <input type="number" onChange={this.handleLengthChange} />
+            <input type="number" onChange={this.handleLengthChange} value={this.state.length_km}/>
           </label>
           <label>
             Do You Recommend This Regatta?
@@ -75,7 +80,10 @@ export default class AddRegattaPage extends Component {
               <option value="false">Don't go to this regatta</option>
             </select>
           </label>
-          <button>Submit Regatta</button>
+          {
+            (!this.state.name || !this.state.type ||!this.state.city || !this.state.length_km ) ? <button className="disabled">Submit Regatta</button> : <button>Submit Regatta</button>
+          }
+          
         </form>
       </div>
     )

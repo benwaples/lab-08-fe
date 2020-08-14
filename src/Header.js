@@ -7,8 +7,11 @@ export default class Header extends Component {
   render() {
     return (
       <header>
-        <h1>Regatta Library</h1>
-        <Link to='/addRegatta'>Add A Regatta</Link>
+        <h1><Link to='/' className="nostyleLinks">Regatta Library</Link></h1>
+        <nav>
+          <Link to='/addRegatta' className="nav">Add A Regatta</Link>
+          <Link to='/regatta/:id' className="nav">More Info Page</Link>
+        </nav>
       </header>
     )
   }
