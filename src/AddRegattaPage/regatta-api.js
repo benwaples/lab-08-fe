@@ -7,7 +7,11 @@ export function getRegattas() {
 }
 
 export function getRegatta(id) {
-  return request.get(`${URL}/regattas${id}`)
+  return request.get(`${URL}/regattas/${id}`)
+}
+
+export function editRegatta(id, updatedRegatta) {
+  return request.put(`${URL}/regattas/${id}`, updatedRegatta)
 }
 
 export function addRegatta(regattaData) {

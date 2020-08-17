@@ -9,8 +9,7 @@ export default class Header extends Component {
       <header>
         <h1><Link to='/' className="nostyleLinks">Regatta Library</Link></h1>
         <nav>
-          <Link to='/addRegatta' className="nav">Add A Regatta</Link>
-          <Link to='/regatta/:id' className="nav">More Info Page</Link>
+          <Link to='/addRegatta' className="nav nostyleLinks">Add A Regatta</Link>
         </nav>
       </header>
     )

@@ -1,21 +1,26 @@
 import React, { Component } from 'react'
-import { addRegatta } from './regatta-api.js'
+import { editRegatta } from '../AddRegattaPage/regatta-api.js'
+import {
+  Redirect
+} from 'react-router-dom';
 
-export default class AddRegattaPage extends Component {
+export default class EditRegatta extends Component {
   state = {
-    name: '',
-    type: '2',
-    city: '',
-    length_km: '',
-    recommend: true,
+    name: this.props.regattaData.name || '',
+    type_id: this.props.regattaData.type_id || '2',
+    city: this.props.regattaData.city || '',
+    length_km: this.props.regattaData.length_km ||'',
+    recommend: this.props.regattaData.recommend || true,
   }
 
   handleSubmit = async(e) => {
     e.preventDefault();
 
-    const postData = await addRegatta({
+    const regattaId = this.props.id
+
+    const postData = await editRegatta( regattaId, {
       name: this.state.name,
-      type_id: this.state.type,
+      type_id: this.state.type_id,
       city: this.state.city,
       length_km: this.state.length_km,
       recommend: this.state.recommend
@@ -23,13 +28,7 @@ export default class AddRegattaPage extends Component {
 
     console.log(postData)
 
-    this.setState({
-      name: '',
-      type: '2',
-      city: '',
-      length_km: '',
-      recommend: true,
-    })
+    this.props.history.push('/')
 
   }
 
@@ -50,17 +49,20 @@ export default class AddRegattaPage extends Component {
   }
   
   render() {
+
+    const { regattaData } = this.props;
+
     return (
-      <div className="form-div">
-        <h3>Add A Regatta Below</h3>
-        <form className="do-it" onSubmit={this.handleSubmit}>
+      <div className="editBackground form-div">
+        <h3>Edit This Regatta Below</h3>
+        <form className="form-div do-it" onSubmit={this.handleSubmit}>
           <label>
             Name:
             <input type="text" onChange={this.handleNameChange} value={this.state.name}/>
           </label>
           <label>
             Type:
-            <select onChange={this.handleTypeChange}>
+            <select onChange={this.handleTypeChange} value={this.state.type_id}>
               <option value="2">Head Race</option>
               <option value="1">Sprint</option>
             </select>
@@ -75,16 +77,16 @@ export default class AddRegattaPage extends Component {
           </label>
           <label>
             Recommend it?
-            <select onChange={this.handleRecommendChange}>
+            <select onChange={this.handleRecommendChange} value={this.state.recommend}>
               <option value="true">I do recommend</option>
               <option value="false">Don't go to this regatta</option>
             </select>
           </label>
           {
-            (!this.state.name || !this.state.type ||!this.state.city || !this.state.length_km ) ? <button className="disabled">Submit Regatta</button> : <button>Submit Regatta</button>
+            (!this.state.name || !this.state.type_id ||!this.state.city || !this.state.length_km ) ? <button className="disabled">Edit Regatta</button> : <button>Edit Regatta</button>
           }
         </form>
-      </div>
+       </div>
     )
-  }
+        }
 }

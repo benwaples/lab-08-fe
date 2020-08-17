@@ -9,7 +9,7 @@ export default class Regatta extends Component {
       data
     } = this.props
     return (
-      <li key={`${data.id}-${Math.random()*200}`} className="regattaCard">
+      <li key={Math.random()} className="regattaCard">
         <h1><Link className="nostyleLinks"to={`/regatta/${data.id}`}>{data.name} </Link></h1>
       </li>
     )
