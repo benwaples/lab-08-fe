@@ -31,6 +31,10 @@ body {
   }
 }
 
+.spin {
+  animation: App-logo-spin infinite 3s linear;
+}
+
 header {
   height: 200px;
   background-color: var(--color2);
@@ -43,7 +47,7 @@ header {
 
 .regattaCard {
   width: 300px;
-  height: 500px;
+  height: auto;
   border: solid var(--color1) 2px;
   border-radius: 15px;
   background-color: var(--color3);
@@ -54,6 +58,12 @@ header {
   align-items: center;
 }
 
+.regattaCard:hover {
+  transform: scale(1.02);
+  color: black;
+  filter: saturate(120%) contrast(120%) drop-shadow(12px 10px 8px);
+}
+
 ul {
   display: flex;
   flex-direction: row;
@@ -61,3 +71,102 @@ ul {
   justify-content: space-around;
   align-items: center;
 }
+
+.nostyleLinks {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nav {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: var(--color1);
+  padding: 8px;
+  border: solid black 2px;
+  border-radius: 20px;
+}
+
+nav {
+  margin-top: -50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 350px;
+}
+
+.disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: .7;
+}
+
+button {
+  cursor: pointer;
+}
+
+.form-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 300px;
+  border: solid 2px black;
+  padding: 8px;
+  background-image: url("/hocr.jpg");
+  background-position: 25%;
+}
+
+.do-it {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-image: url("/windemere.jpg");
+  background-position: 25%;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color5);
+  opacity: .2;
+}
+
+label:hover {
+  opacity: 1;
+}
+
+input {
+  width: 160px;
+}
+
+select {
+  width: 160px;
+}
+
+.loading {
+  margin: auto;
+  display: block;
+}
+
+.choices {
+  border: solid black 2px;
+  background-color: var(--color5);
+  padding: 8px
+}
+
+.delete {
+  background-color: rgb(219, 65, 65);
+}
+
