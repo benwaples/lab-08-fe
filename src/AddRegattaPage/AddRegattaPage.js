@@ -30,7 +30,7 @@ export default class AddRegattaPage extends Component {
       length_km: '',
       recommend: true,
     })
-
+    this.props.history.push('/');
   }
 
   handleNameChange = e => {
