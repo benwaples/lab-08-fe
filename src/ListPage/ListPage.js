@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import request from 'superagent'
 import List from './List.js'
 import Filter from './Filter.js'
+import {
+  Link
+} from 'react-router-dom';
 
 export default class ListPage extends Component {
   state = {
@@ -60,9 +63,10 @@ export default class ListPage extends Component {
         <div className="filter">
           <p>Filter</p>
           <Filter handleFilter={this.handleFilter} options={this.state.options}/>
+          <Link to='/addRegatta' className="addRegatta nostyleLinks">Add A Regatta</Link>
         </div>
         :
-        <div></div>
+        <div><Link to='/addRegatta' className="addRegatta nostyleLinks">Add A Regatta</Link></div>
       }
         <div className="details">
           {

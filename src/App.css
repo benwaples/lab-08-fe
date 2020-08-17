@@ -45,7 +45,7 @@ header {
   font-size: 40px;
 }
 
-.regattaCard {
+.regattaCard, .infoCard {
   width: 300px;
   height: auto;
   border: solid var(--color1) 2px;
@@ -61,7 +61,7 @@ header {
 .regattaCard:hover {
   transform: scale(1.02);
   color: black;
-  filter: saturate(120%) contrast(120%) drop-shadow(12px 10px 8px);
+  filter: saturate(150%) contrast(120%) drop-shadow(12px 10px 8px);
 }
 
 ul {
@@ -88,7 +88,7 @@ ul {
 }
 
 nav {
-  margin-top: -50px;
+  margin-top: 50px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -170,3 +170,25 @@ select {
   background-color: rgb(219, 65, 65);
 }
 
+.home {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 50px;
+  height: 100%;
+  width: auto;
+}
+
+.addRegatta {
+  background-color: rgb(231, 217, 199);
+  margin-top: 10px;
+  border: 2px solid black;
+  padding: 8px;
+}
