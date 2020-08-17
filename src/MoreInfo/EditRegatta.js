@@ -4,7 +4,7 @@ import { editRegatta } from '../AddRegattaPage/regatta-api.js'
 export default class EditRegatta extends Component {
   state = {
     name: this.props.regattaData.name || '',
-    type_id: this.props.regattaData.type_id || '2',
+    type_id: this.props.regattaData.type_id === 'Head Race' ? '2' : '1',
     city: this.props.regattaData.city || '',
     length_km: this.props.regattaData.length_km ||'',
     recommend: this.props.regattaData.recommend || true,
