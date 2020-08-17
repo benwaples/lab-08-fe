@@ -21,11 +21,11 @@ export default class MoreDetailCard extends Component {
             history } = this.props
 
     return (
-      <div className="regattaCard">
+      <div className="infoCard">
         <h1>{regattaData.name}</h1>
         <p>Race Type: {regattaData.type_id}</p>
         <p>City: {regattaData.city}</p>
-        <p>Race Length: {regattaData.length_km}</p>
+        <p>Race Length: {regattaData.length_km}k</p>
         <p>Recommend: {regattaData.recommend ? 'Yes' : 'No'}</p>
         <p><Link to='/' className="choices nostyleLinks">Go back</Link></p>
         <p className="choices nostyleLinks" onClick={this.displayForm}>edit info</p>

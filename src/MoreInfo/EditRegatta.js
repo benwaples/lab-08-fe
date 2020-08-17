@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
 import { editRegatta } from '../AddRegattaPage/regatta-api.js'
-import {
-  Redirect
-} from 'react-router-dom';
 
 export default class EditRegatta extends Component {
   state = {
@@ -49,8 +46,6 @@ export default class EditRegatta extends Component {
   }
   
   render() {
-
-    const { regattaData } = this.props;
 
     return (
       <div className="editBackground form-div">
