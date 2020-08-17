@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import {
+  Link
+} from 'react-router-dom';
 
 export default class Regatta extends Component {
   render() {
@@ -6,12 +9,8 @@ export default class Regatta extends Component {
       data
     } = this.props
     return (
-      <li key={Math.random()*200} className="regattaCard">
-        <h1>{data.name}</h1>
-        <p>Race Type: {data.type}</p>
-        <p>City: {data.city}</p>
-        <p>Race Length: {data.length_km}</p>
-        <p>Recommend: {data.recommend ? 'Yes' : 'No'}</p>
+      <li key={Math.random()} className="regattaCard">
+        <h1><Link className="nostyleLinks"to={`/regatta/${data.id}`}>{data.name} </Link></h1>
       </li>
     )
   }
